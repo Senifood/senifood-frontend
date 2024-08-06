@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import Back from "../../Img/Back.png";
 import "./LunchBox.css";
-// Import all images
 import lunchbox1 from '../../Img/lunchbox1.jpeg';
 import lunchbox2 from '../../Img/lunchbox2.jpeg';
 import lunchbox3 from '../../Img/lunchbox3.jpeg';
@@ -80,13 +79,13 @@ function LunchBox() {
         }
         const data = await response.json();
         console.log(data);
-        setLunchbox(data);
-
-        const updatedLunchboxes = data.map(lunchbox => ({
-          ...lunchbox,
-          lunchbox_imageURL: getImageById(lunchbox.lunchbox_id)
-        }));
-        setLunchbox(updatedLunchboxes);
+        
+        const updatedLunchbox = {
+          ...data,
+          lunchbox_imageURL: getImageById(data.lunchbox_id)
+        };
+        
+        setLunchbox(updatedLunchbox);
         setIsSubscribed(data.is_subscribed); // 구독 상태 설정
       } catch (error) {
         console.error("Error fetching lunchbox:", error);
@@ -95,7 +94,7 @@ function LunchBox() {
     };
 
     fetchLunchbox();
-  }, []);
+  }, [lunchbox_id, userId]);
 
   if (!lunchbox) {
     return <div>Loading...</div>;
