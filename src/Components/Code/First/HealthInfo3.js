@@ -24,7 +24,7 @@ function HealthInfo3() {
     };
 
     try {
-      const response = await fetch(`${process.env.BACKEND_URL}/api/survey/${userId}`, {
+      const response = await fetch(`/api/survey/${userId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

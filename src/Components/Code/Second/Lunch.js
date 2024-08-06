@@ -20,7 +20,7 @@ function Lunch() {
   const fetchUserName = async () => {
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch(`${process.env.BACKEND_URL}/api/user/${userId}`);
+      const response = await fetch(`/api/user/${userId}`);
       
       const data = await response.json();
       if (response.ok) {
@@ -57,7 +57,7 @@ function Lunch() {
 
   const fetchLunchboxes = async () => {
     try {
-      const response = await fetch('${process.env.BACKEND_URL}/api/lunchbox');
+      const response = await fetch('/api/lunchbox');
       
       const data = await response.json();
       console.log(data);
