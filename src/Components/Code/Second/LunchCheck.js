@@ -6,7 +6,6 @@ import Back from '../../Img/Back.png';
 import Next from '../../Img/Next.png';
 
 const LunchCheck = () => {
-  const [userName, setUserName] = useState("");
   const [lunchboxes, setLunchboxes] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showConfirmation, setShowConfirmation] = useState(false); // 팝업 창 상태
@@ -26,26 +25,6 @@ const LunchCheck = () => {
       }
     };
 
-    const fetchUserName = async () => {
-      const userId = localStorage.getItem('userId');
-      try {
-        const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/user/${userId}`);
-        const data = await response.json();
-  
-        if (response.ok) {
-          setUserName(data.object.name);
-        } else {
-          console.error('Error fetching user name:', data);
-          alert("이름없음");
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert("서버와 통신 중 오류가 발생했습니다. 다시 시도해주세요.");
-        setUserName("테스트");
-      }
-    };
-
-    fetchUserName();
     fetchLunchboxes();
   }, []);
 

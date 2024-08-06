@@ -58,7 +58,7 @@ function LunchBox() {
 
   useEffect(() => {
     fetchLunchbox();
-  }, [lunchbox_id]);
+  }, [fetchLunchbox]);
 
   if (!lunchbox) {
     return <div>Loading...</div>;

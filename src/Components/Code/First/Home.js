@@ -12,7 +12,7 @@ function Home() {
 
   return (
     <div className="HomeDiv">
-      <img src={main}></img>
+      <img src={main} alt="home"></img>
       <h1 className="HomeTitle green">시니푸드</h1>
       <button className="HomeStart" onClick={handleStartClick}>
         시작하기

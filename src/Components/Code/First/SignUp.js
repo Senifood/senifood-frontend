@@ -105,10 +105,6 @@ function SignUp() {
     navigate("/login");
   };
 
-  const goToHome = () => {
-    navigate("/");
-  };
-
   return (
     <div className="SignUpDiv">
       <div className="SignUpTitle">

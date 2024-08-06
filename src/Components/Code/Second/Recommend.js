@@ -17,7 +17,6 @@ function Recommend() {
     dietId: ""
   });
   const [likeImage, setLikeImage] = useState(LikeButton2);
-  const navigate = useNavigate();
 
   const fetchUserName = async () => {
     const userId = localStorage.getItem('userId');

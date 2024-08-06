@@ -50,10 +50,6 @@ function Login() {
     }
   };
 
-  const goToHome = () => {
-    navigate("/");
-  };
-
   return (
     <div className="LoginDiv">
       <h2 className="LoginTitle">로그인</h2>
