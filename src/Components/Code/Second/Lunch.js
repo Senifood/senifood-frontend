@@ -10,7 +10,6 @@ import lunchbox3 from '../../Img/lunchbox3.jpeg';
 import lunchbox4 from '../../Img/lunchbox4.jpeg';
 import lunchbox5 from '../../Img/lunchbox5.jpeg';
 import lunchbox6 from '../../Img/lunchbox6.jpeg';
-import lunchbox7 from '../../Img/lunchbox7.jpeg';
 
 function Lunch() {
   const [userName, setUserName] = useState("");
@@ -48,8 +47,6 @@ function Lunch() {
         return lunchbox5;
       case 6:
         return lunchbox6;
-      case 7:
-        return lunchbox7;
       default:
         return '';
     }
