@@ -66,7 +66,7 @@ function LunchBox() {
 
   useEffect(() => {
     const fetchLunchbox = async () => {
-      console.log(`Fetching lunchbox with ID: ${lunchbox_id}`);
+      console.log(`Fetching lunchbox with ID: ${lunchbox_id} for user: ${userId}`);
       try {
         const response = await fetch(`https://senifood-backend-rocif.run.goorm.site/api/lunchbox/${userId}/${lunchbox_id}`, {
           method: "GET",
@@ -79,22 +79,23 @@ function LunchBox() {
         }
         const data = await response.json();
         console.log(data);
-        
+  
         const updatedLunchbox = {
           ...data,
           lunchbox_imageURL: getImageById(data.lunchbox_id)
         };
-        
+  
         setLunchbox(updatedLunchbox);
-        setIsSubscribed(data.is_subscribed); // 구독 상태 설정
+        setIsSubscribed(data.is_subscribed);
       } catch (error) {
         console.error("Error fetching lunchbox:", error);
         alert("서버와 통신 중 오류가 발생했습니다. 다시 시도해주세요.");
       }
     };
-
+  
     fetchLunchbox();
   }, [lunchbox_id, userId]);
+  
 
   if (!lunchbox) {
     return <div>Loading...</div>;
