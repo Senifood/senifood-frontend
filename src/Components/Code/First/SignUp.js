@@ -70,7 +70,7 @@ function SignUp() {
     if (valid) {
       // 모든 유효성 검사를 통과한 경우
       try {
-        const response = await fetch('http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/user/join', {
+        const response = await fetch('https://jocular-elf-62138c.netlify.app/api/user/join', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

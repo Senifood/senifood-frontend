@@ -3,6 +3,15 @@ import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import "./Lunch.css";
 
+// Import all images
+import lunchbox1 from '../../Img/lunchbox1.jpeg';
+import lunchbox2 from '../../Img/lunchbox2.jpeg';
+import lunchbox3 from '../../Img/lunchbox3.jpeg';
+import lunchbox4 from '../../Img/lunchbox4.jpeg';
+import lunchbox5 from '../../Img/lunchbox5.jpeg';
+import lunchbox6 from '../../Img/lunchbox6.jpeg';
+import lunchbox7 from '../../Img/lunchbox7.jpeg';
+
 function Lunch() {
   const [userName, setUserName] = useState("");
   const [lunchboxes, setLunchboxes] = useState([]);
@@ -11,7 +20,7 @@ function Lunch() {
   const fetchUserName = async () => {
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/user/${userId}`);
+      const response = await fetch(`https://jocular-elf-62138c.netlify.app/api/user/${userId}`);
       
       const data = await response.json();
       if (response.ok) {
@@ -25,6 +34,27 @@ function Lunch() {
     }
   };
 
+  const getImageById = (id) => {
+    switch (id) {
+      case 1:
+        return lunchbox1;
+      case 2:
+        return lunchbox2;
+      case 3:
+        return lunchbox3;
+      case 4:
+        return lunchbox4;
+      case 5:
+        return lunchbox5;
+      case 6:
+        return lunchbox6;
+      case 7:
+        return lunchbox7;
+      default:
+        return '';
+    }
+  };
+
   const fetchLunchboxes = async () => {
     try {
       const response = await fetch('http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/lunchbox');
@@ -33,7 +63,12 @@ function Lunch() {
       console.log(data);
       
       if (response.ok) {
-        setLunchboxes(data);
+        // 이미지 URL을 설정
+        const updatedLunchboxes = data.map(lunchbox => ({
+          ...lunchbox,
+          lunchbox_imageURL: getImageById(lunchbox.lunchbox_id)
+        }));
+        setLunchboxes(updatedLunchboxes);
       } else {
         console.error('Error fetching lunchboxes:', data);
         alert("보여드릴 도시락이 없습니다.");

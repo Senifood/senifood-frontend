@@ -24,7 +24,7 @@ function HealthInfo3() {
     };
 
     try {
-      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/survey/${userId}`, { // 예시 엔드포인트
+      const response = await fetch(`https://jocular-elf-62138c.netlify.app/api/survey/${userId}`, { // 예시 엔드포인트
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -20,7 +20,7 @@ function LunchBox() {
 
   const handleConfirmSubscribe = async () => {
     try {
-      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/lunchbox/subscribe/${userId}/${lunchbox_id}`, {
+      const response = await fetch(`https://jocular-elf-62138c.netlify.app/api/lunchbox/subscribe/${userId}/${lunchbox_id}`, {
         method: "POST",
       });
       if (response.ok) {
@@ -45,7 +45,13 @@ function LunchBox() {
     const fetchLunchbox = async () => {
       console.log(`Fetching lunchbox with ID: ${lunchbox_id}`);
       try {
-        const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/lunchbox/${lunchbox_id}`);
+        const response = await fetch(`https://jocular-elf-62138c.netlify.app/api/lunchbox/${lunchbox_id}`, {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ user_id: userId }),
+        });
         if (!response.ok) {
           throw new Error(`Error fetching lunchbox: ${response.status} ${response.statusText}`);
         }
