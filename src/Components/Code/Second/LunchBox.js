@@ -12,22 +12,7 @@ function LunchBox() {
   const navigate = useNavigate();
   const userId = localStorage.getItem("userId"); // 로컬 스토리지에서 userId 가져오기
 
-  const fetchLunchbox = async () => {
-    console.log(`Fetching lunchbox with ID: ${lunchbox_id}`);
-    try {
-      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/lunchbox/${lunchbox_id}`);
-      if (!response.ok) {
-        throw new Error(`Error fetching lunchbox: ${response.status} ${response.statusText}`);
-      }
-      const data = await response.json();
-      console.log(data);
-      setLunchbox(data);
-      setIsSubscribed(data.is_subscribed); // 구독 상태 설정
-    } catch (error) {
-      console.error("Error fetching lunchbox:", error);
-      alert("서버와 통신 중 오류가 발생했습니다. 다시 시도해주세요.");
-    }
-  };
+  
 
   const handleSubscribeClick = () => {
     setShowConfirmation(true);
@@ -57,8 +42,25 @@ function LunchBox() {
   };
 
   useEffect(() => {
+    const fetchLunchbox = async () => {
+      console.log(`Fetching lunchbox with ID: ${lunchbox_id}`);
+      try {
+        const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/lunchbox/${lunchbox_id}`);
+        if (!response.ok) {
+          throw new Error(`Error fetching lunchbox: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log(data);
+        setLunchbox(data);
+        setIsSubscribed(data.is_subscribed); // 구독 상태 설정
+      } catch (error) {
+        console.error("Error fetching lunchbox:", error);
+        alert("서버와 통신 중 오류가 발생했습니다. 다시 시도해주세요.");
+      }
+    };
+
     fetchLunchbox();
-  }, [fetchLunchbox]);
+  }, []);
 
   if (!lunchbox) {
     return <div>Loading...</div>;

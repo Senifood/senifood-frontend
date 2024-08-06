@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import Re from "../../Img/Re.png";
 import LikeButton1 from "../../Img/LikeButton1.png";

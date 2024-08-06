@@ -71,7 +71,7 @@ function Login() {
       />
       <div className="LoginMinor">
         <p>아직 계정이 없으신가요?</p>
-        <a href="#" onClick={() => navigate("/signup")}>회원가입</a>
+        <a href="/signup" onClick={() => navigate("/signup")}>회원가입</a>
       </div>
       <button className="LoginButton" onClick={handleLogin}>
         로그인

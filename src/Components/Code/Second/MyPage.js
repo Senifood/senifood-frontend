@@ -77,7 +77,7 @@ function MyPage() {
         <div className="FooterInfo">
           <span>Ver 3.98.2</span>
           <span>최신 버전</span>
-          <a href="#" onClick={handleLogout}>로그아웃</a> 
+          <a href="/mypage" onClick={handleLogout}>로그아웃</a> 
         </div>
       </div>
       <Footer />
