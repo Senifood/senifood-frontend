@@ -11,7 +11,7 @@ function HealthCheck() {
   const fetchHealthInfo = async () => {
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch(`https://jocular-elf-62138c.netlify.app/api/survey/responses/${userId}`);
+      const response = await fetch(`/api/survey/responses/${userId}`);
       const data = await response.json();
       if (response.ok) {
         setHealthInfo(data);
