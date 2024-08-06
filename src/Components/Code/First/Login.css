@@ -1,0 +1,91 @@
+.LoginDiv {
+    width: 375px;
+    height: 812px;
+    background: #FFF;
+    text-align: center;
+}
+
+.LoginTitle {
+    margin-top: 117px;
+    color: #000;
+    text-align: center;
+    font-family: "Abhaya Libre Medium";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 100% */
+    letter-spacing: -0.5px;
+    margin-bottom: 65px;
+}
+
+.LoginName {
+    margin-top: 29px;
+    margin-left: 35px;
+    width: 200px;
+    height: 20px;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+}
+
+.LoginInput {
+    margin-top: 17px;
+    width: 297px;
+    height: 60px;
+    background-color: #2CAA3F;
+    opacity: 0.5;
+    border-radius: 25px;
+    border: 1px solid #2CAA3F;
+    text-align: center;
+    font-size: 18px;
+}
+
+.LoginInput::placeholder {
+    color: white;
+    font-size: 18px;
+}
+
+.LoginMinor {
+    margin-top: 55px;
+    display: flex;
+}
+
+.LoginMinor p {
+    width: 204px;
+    height: 20px;
+    color: #000;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.LoginMinor a {
+    width: 70px;
+    height: 16px;
+    color: #5EA77B;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.LoginButton { 
+    margin-top: 79px;
+    width: 327px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #2CAA3F;
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    border: 1px solid #2CAA3F;
+}

@@ -1,0 +1,49 @@
+.LunchDiv {
+    padding: 20px;
+    height: 800px;
+}
+
+.LunchTitle {
+    margin-top: 60px;
+    margin-left: 60px;
+    font-size: 24px;
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.84px;
+}
+  
+.LunchContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+  
+.LunchBox {
+    width: 45%;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+  
+.LunchBoxImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+  
+.LunchBox p {
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    color: #333;
+}
+  

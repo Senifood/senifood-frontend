@@ -1,0 +1,127 @@
+.LunchCheck {
+    height: 800px;
+    position: relative;
+    margin-top: 80px;
+}
+  
+.LunchCheckHeader {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+  
+.LunchCheckHeader img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.LunchCheckHeader h2 {
+    margin-left: 111px;
+}
+
+.HealthCheckHeader .title {
+    margin-left: 120px;
+}
+  
+.LunchCheckDetails {
+    text-align: center;
+    margin-top: 100px;
+    margin-right: 20px;
+}
+  
+.NavigationButtons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin: 0 10px;
+    margin-bottom: 120px;
+}
+
+.NavigationButtons .main-img {
+    width: 260px;
+    height: 260px;
+    margin-bottom: 0;
+}
+
+.LunchCheckDetails h3 {
+    margin-top: 10px;
+}
+
+.LunchCheckDetails p {
+    margin-top: 20px;
+}
+
+.LunchCheckDetails ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 0; /* 이 속성을 사용하여 목록의 왼쪽 여백을 없앱니다. */
+  }
+  
+.LunchCheckDetails li {
+    margin: 0; /* 목록 항목의 여백을 없앱니다. */
+    padding: 0; /* 목록 항목의 패딩을 없앱니다. */
+}
+  
+.CancelButton {
+    color: #666;
+    background-color: white;
+    font-family: "Noto Sans KR";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px; /* 90% */
+    letter-spacing: 0.6px;
+    text-decoration-line: underline;
+    border: none;
+    margin-top: 50px;
+    margin-left: 370px;
+
+    cursor: pointer;
+}
+
+#note-form {
+    display: none;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #note-form p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    margin-top: 100px;
+  }
+  
+  #note-form button {
+    width: 100px;
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  
+  #note-form .yes {
+    background-color: #2CAA3F;
+    color: white;
+    border: none;
+  }
+  
+  #note-form .no {
+    background-color: #ccc;
+    color: black;
+    border: none;
+  }
+  

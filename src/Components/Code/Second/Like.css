@@ -1,0 +1,73 @@
+.LikeDiv {
+    padding: 20px;
+    height: 800px;
+}
+
+.LikeTitle {
+    margin-top: 60px;
+    margin-left: 60px;
+    font-size: 24px;
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.84px;
+}
+  
+.LikeMeal {
+    margin-top: 75px;
+    text-align: center;
+}
+
+.LikeMeal .meal-image {
+    display: flex;
+    align-items: center;
+}
+
+.LikeMeal .meal-image img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+  
+.LikeMeal .meal-image .real {
+    width: 260px;
+    height: 260px;
+}
+
+.LikeBar {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #000;
+    text-align: center;
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.875px;
+}
+
+.LikeBar img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.op0 {
+    opacity: 0;
+}
+
+.LikeBar:last-child {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.LikeDes {
+    margin-top: 15px;
+    font-size: 20px;
+    margin-bottom: 50px;
+}

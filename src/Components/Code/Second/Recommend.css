@@ -1,0 +1,57 @@
+.RecommendDiv {
+    padding: 20px;
+    height: 800px;
+}
+
+.RecommendTitle {
+    margin-top: 60px;
+    margin-left: 60px;
+    font-size: 24px;
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.84px;
+}
+  
+.RecommendMeal {
+    margin-top: 75px;
+    text-align: center;
+}
+  
+.meal-image img {
+    width: 260px;
+    height: 260px;
+}
+
+.RecommendBar {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #000;
+    text-align: center;
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.875px;
+}
+
+.RecommendBar img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.RecommendBar:last-child {
+    width: 30px;
+    height: 30px;
+}
+
+.RecommendDes {
+    margin-top: 15px;
+    font-size: 20px;
+    margin-bottom: 50px;
+}

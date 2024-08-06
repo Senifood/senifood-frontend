@@ -1,0 +1,38 @@
+.HealthCheckDiv {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    margin-top: 80px;
+}
+  
+.HealthCheckHeader {
+    display: flex;
+    text-align: center;
+    margin-bottom: 80px;
+}
+  
+.HealthCheckHeader img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: 0;
+    margin-right: 10px;
+}
+  
+.HealthCheckHeader h2 {
+    margin-left: 130px;
+}
+
+.HealthCheckContent { 
+    margin-bottom: 223px;
+}
+
+.HealthCheckContent h3 {
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+  
+.HealthCheckContent p {
+    font-size: 16px;
+    margin: 0 50px 50px 50px;
+}
+  
