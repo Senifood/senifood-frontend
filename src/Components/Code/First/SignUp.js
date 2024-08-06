@@ -70,7 +70,7 @@ function SignUp() {
     if (valid) {
       // 모든 유효성 검사를 통과한 경우
       try {
-        const response = await fetch('/api/user/join', {
+        const response = await fetch('${process.env.BACKEND_URL}/api/user/join', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

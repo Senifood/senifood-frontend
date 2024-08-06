@@ -15,7 +15,7 @@ const LunchCheck = () => {
     const fetchLunchboxes = async () => {
       try {
         const userId = localStorage.getItem('userId');
-        const response = await fetch(`/api/lunchbox/subscribe/${userId}`);
+        const response = await fetch(`${process.env.BACKEND_URL}/api/lunchbox/subscribe/${userId}`);
         const data = await response.json();
         console.log(data);
         setLunchboxes(data);
@@ -48,7 +48,7 @@ const LunchCheck = () => {
     const userId = localStorage.getItem('userId');
     const currentLunchboxId = lunchboxes[currentIndex].lunchboxId;
     try {
-      const response = await fetch(`/api/lunchbox/subscribe/${userId}/${currentLunchboxId}`, {
+      const response = await fetch(`${process.env.BACKEND_URL}/api/lunchbox/subscribe/${userId}/${currentLunchboxId}`, {
         method: 'DELETE',
       });
 
