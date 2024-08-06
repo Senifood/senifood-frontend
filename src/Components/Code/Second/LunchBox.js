@@ -3,6 +3,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import Back from "../../Img/Back.png";
 import "./LunchBox.css";
+// Import all images
+import lunchbox1 from '../../Img/lunchbox1.jpeg';
+import lunchbox2 from '../../Img/lunchbox2.jpeg';
+import lunchbox3 from '../../Img/lunchbox3.jpeg';
+import lunchbox4 from '../../Img/lunchbox4.jpeg';
+import lunchbox5 from '../../Img/lunchbox5.jpeg';
+import lunchbox6 from '../../Img/lunchbox6.jpeg';
 
 function LunchBox() {
   const { lunchbox_id } = useParams(); // URL에서 lunchbox_id 파라미터를 가져옴
@@ -12,7 +19,24 @@ function LunchBox() {
   const navigate = useNavigate();
   const userId = localStorage.getItem("userId"); // 로컬 스토리지에서 userId 가져오기
 
-  
+  const getImageById = (id) => {
+    switch (id) {
+      case 1:
+        return lunchbox1;
+      case 2:
+        return lunchbox2;
+      case 3:
+        return lunchbox3;
+      case 4:
+        return lunchbox4;
+      case 5:
+        return lunchbox5;
+      case 6:
+        return lunchbox6;
+      default:
+        return '';
+    }
+  };
 
   const handleSubscribeClick = () => {
     setShowConfirmation(true);
@@ -45,18 +69,23 @@ function LunchBox() {
     const fetchLunchbox = async () => {
       console.log(`Fetching lunchbox with ID: ${lunchbox_id}`);
       try {
-        const response = await fetch(`https://senifood-backend-rocif.run.goorm.site/api/lunchbox/${lunchbox_id}`, {
+        const response = await fetch(`https://senifood-backend-rocif.run.goorm.site/api/lunchbox/${userId}/${lunchbox_id}`, {
           method: "GET",
           headers: {
             'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ user_id: userId }),
+          }
         });
         if (!response.ok) {
           throw new Error(`Error fetching lunchbox: ${response.status} ${response.statusText}`);
         }
         const data = await response.json();
         console.log(data);
+
+        const updatedLunchboxes = data.map(lunchbox => ({
+          ...lunchbox,
+          lunchbox_imageURL: getImageById(lunchbox.lunchbox_id)
+        }));
+        setLunchboxes(updatedLunchboxes);
         setLunchbox(data);
         setIsSubscribed(data.is_subscribed); // 구독 상태 설정
       } catch (error) {
