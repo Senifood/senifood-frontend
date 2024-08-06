@@ -110,14 +110,7 @@ function LunchBox() {
           <h2>{lunchbox.lunchbox_title}</h2>
           <p>{lunchbox.lunchbox_price}원</p>
         </div>
-        <div className="LunchBoxDetails">
-          <p>도시락 구성:</p> <br/>
-          <ul>
-            {lunchbox.lunchbox_foods.split(",").map((food, index) => (
-              <li key={index}>{food}</li>
-            ))}
-          </ul>
-        </div>
+        
         <button className="SubscribeButton" onClick={handleSubscribeClick} disabled={isSubscribed}>
           {isSubscribed ? "구독을 완료하였습니다!" : "구독 요청하기"}
         </button>
