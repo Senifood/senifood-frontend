@@ -80,13 +80,13 @@ function LunchBox() {
         }
         const data = await response.json();
         console.log(data);
+        setLunchbox(data);
 
         const updatedLunchboxes = data.map(lunchbox => ({
           ...lunchbox,
           lunchbox_imageURL: getImageById(lunchbox.lunchbox_id)
         }));
         setLunchboxes(updatedLunchboxes);
-        setLunchbox(data);
         setIsSubscribed(data.is_subscribed); // 구독 상태 설정
       } catch (error) {
         console.error("Error fetching lunchbox:", error);
