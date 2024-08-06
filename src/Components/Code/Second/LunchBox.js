@@ -80,12 +80,9 @@ function LunchBox() {
         const data = await response.json();
         console.log(data);
   
-        const updatedLunchbox = {
-          ...data,
-          lunchbox_imageURL: getImageById(data.lunchbox_id)
-        };
+        data.lunchbox_imageURL = getImageById(data.lunchbox_id)
   
-        setLunchbox(updatedLunchbox);
+        setLunchbox(data);
         setIsSubscribed(data.is_subscribed);
       } catch (error) {
         console.error("Error fetching lunchbox:", error);
