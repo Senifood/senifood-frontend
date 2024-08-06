@@ -24,7 +24,7 @@ function HealthInfo3() {
     };
 
     try {
-      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/survey/${userId}`, {
+      const response = await fetch(`https://senifood-backend-rocif.run.goorm.site/api/survey/${userId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

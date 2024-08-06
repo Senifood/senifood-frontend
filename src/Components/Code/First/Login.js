@@ -9,7 +9,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/login', {
+      const response = await fetch('https://senifood-backend-rocif.run.goorm.site/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ function Login() {
         localStorage.setItem('userId', data.userId); // 서버에서 반환된 userId를 로컬 스토리지에 저장
 
         // 사용자가 healthinfo를 작성한 적이 있는지 확인하는 요청
-        const surveyResponse = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/survey/responses/check/${data.userId}`);
+        const surveyResponse = await fetch(`https://senifood-backend-rocif.run.goorm.site/api/survey/responses/check/${data.userId}`);
         const surveyData = await surveyResponse.json();
 
         if (surveyResponse.ok && surveyData === true) {

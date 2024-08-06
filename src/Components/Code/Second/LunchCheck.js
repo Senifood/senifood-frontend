@@ -15,7 +15,7 @@ const LunchCheck = () => {
     const fetchLunchboxes = async () => {
       try {
         const userId = localStorage.getItem('userId');
-        const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/lunchbox/subscribe/${userId}`);
+        const response = await fetch(`https://senifood-backend-rocif.run.goorm.site/api/lunchbox/subscribe/${userId}`);
         const data = await response.json();
         console.log(data);
         setLunchboxes(data);
@@ -48,7 +48,7 @@ const LunchCheck = () => {
     const userId = localStorage.getItem('userId');
     const currentLunchboxId = lunchboxes[currentIndex].lunchboxId;
     try {
-      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/lunchbox/subscribe/${userId}/${currentLunchboxId}`, {
+      const response = await fetch(`https://senifood-backend-rocif.run.goorm.site/api/lunchbox/subscribe/${userId}/${currentLunchboxId}`, {
         method: 'DELETE',
       });
 

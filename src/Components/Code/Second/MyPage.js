@@ -11,7 +11,7 @@ function MyPage() {
   const fetchUserName = async () => {
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/user/${userId}`);
+      const response = await fetch(`https://senifood-backend-rocif.run.goorm.site/api/user/${userId}`);
         
       const data = await response.json();
       console.log(data);
@@ -31,7 +31,7 @@ function MyPage() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch('http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/logout', {
+      const response = await fetch('https://senifood-backend-rocif.run.goorm.site/api/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
