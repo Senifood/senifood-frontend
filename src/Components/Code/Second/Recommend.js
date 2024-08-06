@@ -16,6 +16,8 @@ function Recommend() {
     dietId: ""
   });
   const [likeImage, setLikeImage] = useState(LikeButton2);
+  const [loading, setLoading] = useState(false);
+  const [countdown, setCountdown] = useState(30);
 
   const fetchUserName = async () => {
     const userId = localStorage.getItem('userId');
@@ -39,6 +41,7 @@ function Recommend() {
   };
 
   const fetchDiet = async () => {
+    setLoading(true);
     const userId = localStorage.getItem('userId');
     try {
       const response = await fetch('http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/diet', {
@@ -79,6 +82,7 @@ function Recommend() {
       });
       setLikeImage(LikeButton2); // 오류가 발생해도 likeImage를 초기화
     }
+    setLoading(false);
   };
 
   const handleLikeClick = async () => {
@@ -147,33 +151,58 @@ function Recommend() {
     fetchDiet();
   }, []);
 
+  useEffect(() => {
+    if (loading) {
+      setCountdown(40);
+      const interval = setInterval(() => {
+        setCountdown(prevCountdown => {
+          if (prevCountdown <= 1) {
+            clearInterval(interval);
+            setLoading(false);
+            return 0;
+          }
+          return prevCountdown - 1;
+        });
+      }, 1000);
+    }
+  }, [loading]);
+
   return (
     <>
-      <div className="RecommendDiv">
-        <div className="RecommendTitle">
-          <h3>{userName} 님을 위한</h3>
-          <h3>오늘의 <span className="green">식단</span> 추천</h3>
-        </div>
-        <div className="RecommendMeal">
-          <div className="meal-image">
-            <img src={diet.dietImageURL} alt={diet.dietTitle}></img>
-          </div>
-          <div className="RecommendBar">
-            <img src={Re} alt="새로고침" onClick={fetchDiet}></img>
-            <p className="meal-name">{diet.dietTitle}</p>
-            <img src={likeImage} alt="좋아요" onClick={handleLikeClick}></img>
-          </div>
-          <div className="RecommendDes">
-            <h3 className="meal-function">효능</h3>
-            <p className="meal-function">{diet.dietBenefit}</p><br/>
-            <h3 className="meal-function">영양소</h3>
-            <p className="meal-function">{diet.dietNutrition}</p><br/>
-            <h3 className="meal-recipe">레시피 보러가기</h3>
-            <p className="meal-recipe"><a href={diet.dietRecipeURL} target="_blank" rel="noopener noreferrer">{diet.dietRecipeURL}</a></p>
+      {loading ? (
+        <div className="loading-screen">
+          <div className="loading-content">
+            <p>Loading...</p>
+            <p>{countdown}</p>
           </div>
         </div>
-        {/*<button onClick={() => navigate("/")}>home으로 이동</button>*/}
-      </div>
+      ) : (
+        <div className="RecommendDiv">
+          <div className="RecommendTitle">
+            <h3>{userName} 님을 위한</h3>
+            <h3>오늘의 <span className="green">식단</span> 추천</h3>
+          </div>
+          <div className="RecommendMeal">
+            <div className="meal-image">
+              <img src={diet.dietImageURL} alt={diet.dietTitle}></img>
+            </div>
+            <div className="RecommendBar">
+              <img src={Re} alt="새로고침" onClick={fetchDiet}></img>
+              <p className="meal-name">{diet.dietTitle}</p>
+              <img src={likeImage} alt="좋아요" onClick={handleLikeClick}></img>
+            </div>
+            <div className="RecommendDes">
+              <h3 className="meal-function">효능</h3>
+              <p className="meal-function">{diet.dietBenefit}</p><br/>
+              <h3 className="meal-function">영양소</h3>
+              <p className="meal-function">{diet.dietNutrition}</p><br/>
+              <h3 className="meal-recipe">레시피 보러가기</h3>
+              <p className="meal-recipe"><a href={diet.dietRecipeURL} target="_blank" rel="noopener noreferrer">{diet.dietRecipeURL}</a></p>
+            </div>
+          </div>
+          {/*<button onClick={() => navigate("/")}>home으로 이동</button>*/}
+        </div>
+      )}
       <Footer />
     </>
   );
