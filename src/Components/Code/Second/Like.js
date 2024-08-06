@@ -15,7 +15,7 @@ function Like() {
   const fetchUserName = async () => {
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/user/${userId}`);
+      const response = await fetch(`${process.env.BACKEND_URL}/api/user/${userId}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -34,7 +34,7 @@ function Like() {
   const fetchLikedDiets = async () => {
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/diet/likes/${userId}`);
+      const response = await fetch(`${process.env.BACKEND_URL}/api/diet/likes/${userId}`);
       const data = await response.json();
       console.log(data);
 
@@ -58,7 +58,7 @@ function Like() {
   
     if (likeImage === LikeButton1) {
       try {
-        const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/diet/likes/${userId}`, {
+        const response = await fetch(`${process.env.BACKEND_URL}/api/diet/likes/${userId}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
