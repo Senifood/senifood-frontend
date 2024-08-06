@@ -22,7 +22,7 @@ function Recommend() {
   const fetchUserName = async () => {
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch(`${process.env.BACKEND_URL}/api/user/${userId}`);
+      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/user/${userId}`);
       
       const data = await response.json();
       console.log(data);
@@ -44,7 +44,7 @@ function Recommend() {
     setLoading(true);
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch(`${process.env.BACKEND_URL}/api/diet`, {
+      const response = await fetch('http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/diet', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ function Recommend() {
     if (likeImage === LikeButton2) {
       setLikeImage(LikeButton1);
       try {
-        const response = await fetch(`${process.env.BACKEND_URL}/api/diet/likes/${userId}`, {
+        const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/diet/likes/${userId}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ function Recommend() {
     } else {
       setLikeImage(LikeButton2);
       try {
-        const response = await fetch(`${process.env.BACKEND_URL}/api/diet/likes/${userId}`, {
+        const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/diet/likes/${userId}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
