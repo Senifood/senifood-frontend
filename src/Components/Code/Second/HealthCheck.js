@@ -11,7 +11,7 @@ function HealthCheck() {
   const fetchHealthInfo = async () => {
     const userId = localStorage.getItem('userId');
     try {
-      const response = await fetch(`/api/survey/responses/${userId}`);
+      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/survey/responses/${userId}`);
       const data = await response.json();
       if (response.ok) {
         setHealthInfo(data);

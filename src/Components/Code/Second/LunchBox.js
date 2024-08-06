@@ -20,7 +20,7 @@ function LunchBox() {
 
   const handleConfirmSubscribe = async () => {
     try {
-      const response = await fetch(`/api/lunchbox/subscribe/${userId}/${lunchbox_id}`, {
+      const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/lunchbox/subscribe/${userId}/${lunchbox_id}`, {
         method: "POST",
       });
       if (response.ok) {
@@ -45,7 +45,7 @@ function LunchBox() {
     const fetchLunchbox = async () => {
       console.log(`Fetching lunchbox with ID: ${lunchbox_id}`);
       try {
-        const response = await fetch(`/api/lunchbox/${lunchbox_id}`, {
+        const response = await fetch(`http://ec2-54-85-193-202.compute-1.amazonaws.com:8080/api/lunchbox/${lunchbox_id}`, {
           method: "GET",
           headers: {
             'Content-Type': 'application/json',
